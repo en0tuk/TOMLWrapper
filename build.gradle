@@ -26,6 +26,10 @@ shadowJar {
     archiveFileName = "${rootProject.name}-${archiveVersion}.jar"
 }
 
+java {
+    withSourcesJar()
+}
+
 test {
     useJUnitPlatform()
 }
