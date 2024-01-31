@@ -23,9 +23,25 @@ shadowJar {
     relocate 'com.electronwill', 'third.electronwill'
     minimize()
 
-    archiveFileName = "${rootProject.name}-${archiveVersion}.${archiveExtension}"
+    archiveFileName = "${rootProject.name}-${archiveVersion}.jar"
 }
 
 test {
     useJUnitPlatform()
+}
+
+def targetJavaVersion = 8
+java {
+    def javaVersion = JavaVersion.toVersion(targetJavaVersion)
+    sourceCompatibility = javaVersion
+    targetCompatibility = javaVersion
+    if (JavaVersion.current() < javaVersion) {
+        toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    if (targetJavaVersion >= 10 || JavaVersion.current().isJava10Compatible()) {
+        options.release = targetJavaVersion
+    }
 }
