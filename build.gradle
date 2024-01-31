@@ -1,6 +1,11 @@
 plugins {
     id 'java'
-    id 'com.github.johnrengelman.shadow' version '7.1.0'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
+    id "com.github.spotbugs" version "6.0.7"
+}
+
+spotbugs {
+    toolVersion = '4.8.3'
 }
 
 group 'ru.enis'
