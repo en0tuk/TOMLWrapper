@@ -18,6 +18,7 @@ on:
     paths:
     - "src/**"
     - "build.gradle"
+  workflow_dispatch:
 
 permissions:
   contents: read
