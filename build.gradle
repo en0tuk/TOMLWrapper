@@ -10,7 +10,7 @@ spotbugs {
 }
 
 group 'ru.enis'
-version '1.0.0'
+version '1.0.1'
 
 repositories {
     mavenCentral()
@@ -45,7 +45,6 @@ dependencies {
 
 shadowJar {
     relocate 'com.electronwill', 'third.electronwill'
-    minimize()
 
     archiveFileName = "${rootProject.name}-${getVersion()}.jar"
 }
