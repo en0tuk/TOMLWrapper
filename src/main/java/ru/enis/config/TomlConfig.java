@@ -19,7 +19,7 @@ public abstract class TomlConfig {
 
             // Check for @Ignored
             if (field.getAnnotation(Ignore.class) == null) {
-                CommentedFileConfig cfg = CommentedFileConfig.builder(file).build();
+                CommentedFileConfig cfg = CommentedFileConfig.builder(file).sync().build();
                 cfg.load();
 
                 String name;
